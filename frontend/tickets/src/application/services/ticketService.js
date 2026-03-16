@@ -27,7 +27,7 @@ export const getTicketsQuery = async (status, sortBy, sortOrder) => {
 
 export const createTicket = async (data) => {
   const response = await ticketApi.createTicket(data);
-  return response;
+  return response.data;
 };
 
 export const updateTicket = async (id, data) => {

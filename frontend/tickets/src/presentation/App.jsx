@@ -33,10 +33,10 @@ export default function App() {
           prev.map(t => (t.id === edit.id ? {
             ...t,
             ...edit,
-            update_at: new Date().toUTCString()
+            updated_at: new Date().toUTCString()
           } : t))
         );
-        setCreate(null);
+        setEdit(null);
       }
     } catch (err) {
       console.error("Update Error:", err);
@@ -47,7 +47,7 @@ export default function App() {
   const handleCreate = async () => {
     try {
       const newItem = await createTicket(create);
-
+      console.log(newItem)
       if (newItem) {
         setSourceData(prev => [newItem, ...prev]);
         setCreate(null);
@@ -65,7 +65,9 @@ export default function App() {
           title: '',
           description: '',
           contact_information: '',
-          status: 'pending'
+          status: 'pending',
+          created_at: new Date().toUTCString(),
+          updated_at: new Date().toUTCString()
         })}
         statusFilter={statusFilter}
         sortBy={sortBy}
@@ -75,7 +77,7 @@ export default function App() {
         setSortOrder={setSortOrder}
       />
 
-      <div className="mx-auto max-w-[700px] min-w-0 h-[calc(100vh-180px)] overflow-y-auto overflow-x-hidden pr-2 grid gap-4">
+      <div className="mx-auto max-w-[60%] min-w-0 h-[calc(100vh-180px)] overflow-y-auto overflow-x-hidden pr-2 grid gap-4">
         {sourceData.map(t => (
           <TicketItem
             key={t.id}

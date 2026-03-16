@@ -13,13 +13,12 @@ export const getTickets = async (query) => {
 export const createTicket = async (ticketDto) => {
   const entity = TicketMapper.dtoToEntity(ticketDto);
   const model = TicketMapper.entityToModel(entity);
-  const isCreated = await repo.createTicket(model);
-  if (!isCreated) return null;
-  const createModel = getTicketyId(id);
-  const dto = TicketMapper.entityListToDtoList(
-    TicketMapper.modelListToEntityList(createModel))
-  console.log({ id, ...dto })
-  return { id, ...dto };
+  const insertId = await repo.createTicket(model);
+  if (!insertId) return null;
+  const createModel = await getTicketById(insertId);
+  const dto = TicketMapper.entityToDto(
+    TicketMapper.modelToEntity(createModel));
+  return {id: insertId, ...dto};
 };
 
 export const updateTicket = async (id, ticketDto) => {

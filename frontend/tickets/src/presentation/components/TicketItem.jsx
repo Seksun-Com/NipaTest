@@ -13,7 +13,7 @@ const TicketItem = ({ ticket, onEdit }) => {
     <div className="bg-slate-800 p-5 rounded-xl border border-slate-700 flex justify-between items-start hover:border-slate-600 transition-all">
       <div className="flex-1 min-w-0">
         <span className="text-[20px] text-slate-500 font-mono">#{ticket.id}</span>
-        <h2 className="font-bold text-white truncate">{ticket.title}</h2>
+        <h2 className="font-bold text-white text-2xl truncate">{ticket.title}</h2>
         <p className="text-slate-400 text-base truncate">{ticket.description}</p>
         <p className="text-slate-400 text-base truncate">{ticket.contact_information}</p>
         <p className="text-slate-400 text-base truncate">{
@@ -34,7 +34,7 @@ const TicketItem = ({ ticket, onEdit }) => {
       </div>
       <button
         onClick={onEdit}
-        className="ml-4 shrink-0 bg-blue-600 hover:bg-blue-500 px-4 py-2 rounded text-xs font-medium"
+        className="ml-4 shrink-0 bg-blue-600 hover:bg-blue-500 px-4 py-2 rounded text-xl font-medium"
       >
         Edit
       </button>

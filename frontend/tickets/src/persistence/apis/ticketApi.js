@@ -2,7 +2,7 @@ const API_BASE = 'http://localhost:3000/tickets';
 
 export const getTickets = async () => {
   const response = await fetch(`${API_BASE}`);
-  if (!response.ok) throw new Error('Failed to fetch');
+  if (!response.success) throw new Error('Failed to fetch');
   return response.json();
 };
 
@@ -30,5 +30,6 @@ export const createTicket = async (data) => {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data)
   });
-  return response.ok;
+  if (!response.ok) throw new Error('Failed to fetch');
+  return response.json();
 };

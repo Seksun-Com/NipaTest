@@ -6,7 +6,7 @@ const Navbar = ({onClick, statusFilter, sortBy, sortOrder, setStatusFilter, setS
       <h1 className="text-xl font-bold text-white">Tickets Dashboard</h1>
       <button
         onClick={onClick}
-        className="ml-4 shrink-0 bg-blue-600 hover:bg-blue-500 px-4 py-2 rounded text-xs font-medium"
+        className="ml-4 shrink-0 bg-green-700 hover:bg-green-500 px-4 py-2 rounded text-base font-medium"
       >
         Add Ticket
       </button>
@@ -35,7 +35,7 @@ const Navbar = ({onClick, statusFilter, sortBy, sortOrder, setStatusFilter, setS
           onClick={() => setSortOrder(prev => prev === 1 ? -1 : 1)}
           className="bg-slate-800 px-3 py-1 rounded border border-slate-700 hover:bg-slate-700"
         >
-          {sortOrder === 1 ? '↑' : '↓'}
+          {sortOrder === 1 ? '↑':'↓'}
         </button>
       </div>
     </nav>
