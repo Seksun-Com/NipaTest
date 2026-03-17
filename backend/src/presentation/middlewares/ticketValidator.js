@@ -1,4 +1,4 @@
-export const validateTicket = (schema, source = 'body') => (req, res, next) => {
+export const ticketValidator = (schema, source = 'body') => (req, res, next) => {
   const data = source === 'body' ? req.body : req.query;
   const result = schema.safeParse(data);
   if (!result.success) {

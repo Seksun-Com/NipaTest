@@ -13,7 +13,7 @@ export const getTicketsQuery = async (status, sortBy, sortOrder) => {
   const finalSortBy = allowedSortBy.includes(sortBy) ? sortBy : "id";
   const parts = [`sortBy=${finalSortBy}`];
 
-  parts.push(`sortOrder=${sortOrder === -1 ? 'ASC' : 'DESC'}`);
+  parts.push(`sortOrder=${sortOrder === 1 ? 'ASC' : 'DESC'}`);
   
   if (Object.values(TicketStatus).includes(status)) {
     parts.push(`status=${status}`);

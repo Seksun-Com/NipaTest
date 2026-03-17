@@ -3,6 +3,7 @@ import { createTicket, getTicketsQuery, updateTicket } from '../application/serv
 import TicketItem from './components/TicketItem.jsx';
 import { ModalEditTicket, ModalCreateTicket } from './components/ModalTicket.jsx';
 import Navbar from './components/Navbar.jsx';
+import ticketValidator from './middlewares/ticketValidator.js';
 
 export default function App() {
   const [sourceData, setSourceData] = useState([]);
@@ -26,6 +27,11 @@ export default function App() {
   }, [statusFilter, sortBy, sortOrder]);
 
   const handleSave = async () => {
+    const validateError = ticketValidator(edit);
+    if (validateError) {
+      alert(validateError);
+      return;
+    }
     try {
       const success = await updateTicket(edit.id, edit);
       if (success) {
@@ -36,6 +42,7 @@ export default function App() {
             updated_at: new Date().toUTCString()
           } : t))
         );
+        getTicketsQuery(statusFilter, sortBy, sortOrder);
         setEdit(null);
       }
     } catch (err) {
@@ -45,11 +52,16 @@ export default function App() {
   };
 
   const handleCreate = async () => {
+    const validateError = ticketValidator(create);
+    if (validateError) {
+      alert(validateError);
+      return;
+    }
     try {
       const newItem = await createTicket(create);
-      console.log(newItem)
       if (newItem) {
         setSourceData(prev => [newItem, ...prev]);
+        getTicketsQuery(statusFilter, sortBy, sortOrder);
         setCreate(null);
       }
     } catch (err) {
@@ -77,7 +89,7 @@ export default function App() {
         setSortOrder={setSortOrder}
       />
 
-      <div className="mx-auto max-w-[60%] min-w-0 h-[calc(100vh-180px)] overflow-y-auto overflow-x-hidden pr-2 grid gap-4">
+      <div className="mx-auto max-w-[60%] min-w-0 h-[calc(100vh-180px)] overflow-y-auto overflow-x-auto pr-2 grid gap-4">
         {sourceData.map(t => (
           <TicketItem
             key={t.id}

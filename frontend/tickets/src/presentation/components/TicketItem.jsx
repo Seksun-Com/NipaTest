@@ -10,7 +10,7 @@ export const getStatusColor = (status) => {
 
 const TicketItem = ({ ticket, onEdit }) => {
   return (
-    <div className="bg-slate-800 p-5 rounded-xl border border-slate-700 flex justify-between items-start hover:border-slate-600 transition-all">
+    <div className=" bg-slate-800 p-5 rounded-xl border border-slate-700 flex justify-between items-start hover:border-slate-600 transition-all">
       <div className="flex-1 min-w-0">
         <span className="text-[20px] text-slate-500 font-mono">#{ticket.id}</span>
         <h2 className="font-bold text-white text-2xl truncate">{ticket.title}</h2>
