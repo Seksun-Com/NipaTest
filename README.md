@@ -11,7 +11,7 @@
 
 1. **Clone Repository**
   ```bash
-   git clone <your-repository-url>
+   git clone https://github.com/Seksun-Com/NipaTest.git
    cd NIPATEST
   ```
 -----
@@ -19,7 +19,7 @@
 2.  **เตรียมฐานข้อมูล (Database Preparation)**
 
       * นำไฟล์ SQL ของคุณมาวางไว้ที่ Root ของโปรเจกต์ (โฟลเดอร์เดียวกับ `docker-compose.yml`)
-      * ตรวจสอบให้แน่ใจว่าชื่อไฟล์คือ `db_setup.sql` เพื่อให้ Docker ทำการ Import ข้อมูลให้อัตโนมัติ
+      * ตรวจสอบให้แน่ใจว่าชื่อไฟล์คือ `tickets.sql` เพื่อให้ Docker ทำการ Import ข้อมูลให้อัตโนมัติ
 
 -----
 
@@ -38,9 +38,9 @@
 
 | Service | URL | คำอธิบาย |
 | :--- | :--- | :--- |
-| **Frontend** | [http://localhost:5173](https://www.google.com/search?q=http://localhost:5173) | หน้า UI หลักสำหรับผู้ใช้งาน |
-| **Backend API** | [http://localhost:3000](https://www.google.com/search?q=http://localhost:3000) | RESTful API สำหรับจัดการข้อมูล |
-| **phpMyAdmin** | [http://localhost:8080](https://www.google.com/search?q=http://localhost:8080) | ระบบจัดการฐานข้อมูลผ่าน Browser |
+| **Frontend** | [http://localhost:5173] | หน้า UI หลักสำหรับผู้ใช้งาน |
+| **Backend API** | [http://localhost:3000] | RESTful API สำหรับจัดการข้อมูล |
+| **phpMyAdmin** | [http://localhost:8080] | ระบบจัดการฐานข้อมูลผ่าน Browser |
 
 -----
 
@@ -48,8 +48,9 @@
 
 ### 1\. Database Configuration
 
+  For PHPMyAdmin
   * **Database Name:** `ticket_system_db`
-  * **Port:** `3306`
+  * **Port:** `8080`
   * **Username:** `root`
   * **Password:** `rootpassword`
 
