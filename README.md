@@ -41,6 +41,22 @@
 | **Frontend** | [http://localhost:5173] | หน้า UI หลักสำหรับผู้ใช้งาน |
 | **Backend API** | [http://localhost:3000] | RESTful API สำหรับจัดการข้อมูล |
 | **phpMyAdmin** | [http://localhost:8080] | ระบบจัดการฐานข้อมูลผ่าน Browser |
+API backend : 
+
+GET /tickets 
+for fetch data tickets
+
+POST /tickets 
+for create new tickets
+
+PUT /tickets/id 
+change id to create and update ticket info
+
+Filter [DEFAULT]
+GET /ticket?sortBy=id&sortOrder=DESC&status=pending
+status='pending' สามารถเปลี่ยนเป็น resolved, accepted, rejected หรือไม่ใส่ก็ได้
+sortBy สามารถใส่ id, updated_at หรือ status
+sortOrder สามารถใส่ DESC หรือ ASC ต้องพิมพ์ใหญ่เท่านั้น
 
 -----
 
